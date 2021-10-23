@@ -21,4 +21,12 @@ class Blog extends Model
     {
         return $this->belongsTo(User::class, 'user_id', 'id');
     }
+
+    public function scopeFilter($query, array $filters)
+    {
+        $query->when($filters['search'] ?? false, function($query, $search){
+            return $query->where('judul', 'like', '%' . $search . '%' )
+            ->orWhere('body', 'like', '%' . $search . '%' );
+        });
+    }
 }

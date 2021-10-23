@@ -73,12 +73,13 @@ class FrontendController extends Controller
         $pendaftaran = Pendaftaran::all();
         $footer = Footer::all();
         $logo = Logo::all();
-        $blog = Blog::orderBy('created_at','DESC')->paginate(3);
+        // $blog = Blog::orderBy('created_at','DESC')->paginate(3);
         $iklan = Iklan::orderBy('created_at','DESC')->paginate(2);
         $postinganTerbaru = Blog::orderBy('created_at','DESC')->limit('5')->get();
 
         return view('front.blog.blog',[
-            'blog' => $blog,
+            // 'blog' => $blog,
+            'blog' => Blog::latest()->filter(request(['search']))->paginate(2)->withQueryString(),
             'logo' => $logo,
             'anggota' => $anggota,
             'pendaftaran' => $pendaftaran,

@@ -24,6 +24,16 @@
     </section><!-- End Breadcrumbs -->
 
     <!-- ======= Blog Section ======= -->
+    <br>
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form class="d-flex" action="/blog">
+                <input class="form-control me-2" name="search" type="search" value="{{ request('search') }}" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-primary" type="submit">Search</button>
+            </form>
+        </div>
+    </div>
+
     <section id="blog" class="blog">
       <div class="container" data-aos="fade-up">
         <div class="row">
