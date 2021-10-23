@@ -55,7 +55,7 @@
                         <tbody>
                             @forelse ($blogs as $index => $row)
                             <tr>
-                                <td>{{ $index + 1 }}</td>
+                                <td>{{ $index + $blogs->firstItem() }}</td>
                                 <td>{{ $row->judul }}</td>
                                 <td>{{ $row->slug }}</td>
                                 <td>{{ $row->users->name }}</td>
