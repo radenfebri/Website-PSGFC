@@ -21,8 +21,12 @@ class BlogController extends Controller
      */
     public function index()
     {
-        $blogs = Blog::orderBy('created_at','DESC')->paginate(5);
-        return view('blog.index',compact('blogs') );
+        // $blogs = Blog::orderBy('created_at','DESC')->paginate(5);
+        return view('blog.index',[
+            'blogs' => Blog::latest()->filter(request(['search']))->paginate(5)->withQueryString(),
+        ]);
+        // 'blog' => Blog::latest()->filter(request(['search']))->paginate(2)->withQueryString(),
+
     }
 
     /**

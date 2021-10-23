@@ -28,5 +28,6 @@ class Blog extends Model
             return $query->where('judul', 'like', '%' . $search . '%' )
             ->orWhere('body', 'like', '%' . $search . '%' );
         });
+
     }
 }
