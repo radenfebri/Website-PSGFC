@@ -131,8 +131,10 @@ use App\Http\Controllers\User\FrontendController;
         Route::middleware('permission:anggota permission')->group(function(){
             // daftar anggota
             Route::resource('anggota', AnggotaController::class);
-            // cetak anggota
-            Route::get('cetak_pdf', [AnggotaController::class, 'cetak_pdf'])->name('anggota.cetak');
+            // cetak PDF anggota
+            Route::get('cetak_pdf', [AnggotaController::class, 'cetak_pdf'])->name('anggota.cetakpdf');
+            // cetak Excel anggota
+            Route::get('cetak_excel', [AnggotaController::class, 'cetak_excel'])->name('anggota.cetakexcel');
 
         });
     });

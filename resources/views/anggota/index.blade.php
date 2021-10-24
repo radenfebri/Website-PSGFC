@@ -33,7 +33,8 @@
                         <a href="{{ route('anggota.create') }}" class="btn btn-primary btn-sm ml-auto">Ceate</a>
                         @endcan
                     </div>
-                    <a href="{{ route('anggota.cetak' ) }}" target="_blank"  class="btn btn-success btn-sm ml-auto">Cetak <i class="fas fa-print"></i></a>
+                    <a href="{{ route('anggota.cetakpdf' ) }}" target="_blank"  class="btn btn-success btn-sm ml-auto">Cetak PDF <i class="fas fa-print"></i></a>
+                    <a href="{{ route('anggota.cetakexcel' ) }}" target="_blank"  class="btn btn-primary btn-sm ml-auto">Cetak EXCEL <i class="fas fa-print"></i></a>
                     {{-- <a class="btn btn-primary" href="{{ ('anggota/cetak_pdf') }}">Export to PDF</a> --}}
                 </div>
                 <div class="card-body">

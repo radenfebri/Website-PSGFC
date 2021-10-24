@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Exports\AnggotaExport;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Http\Controllers\Controller;
 use App\Models\Anggota;
@@ -9,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Storage;
+use Maatwebsite\Excel\Facades\Excel;
 use PDF;
 
 
@@ -161,7 +163,11 @@ class AnggotaController extends Controller
         // return $pdf->download('Daftar Anggota.pdf');
         // return $pdf->stream();
         return $pdf->stream('Daftar Anggota.pdf');
-
-
     }
+
+
+    public function cetak_excel()
+	{
+		return Excel::download(new AnggotaExport(), 'Daftar Anggota.xlsx');
+	}
 }
