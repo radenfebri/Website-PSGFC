@@ -216,14 +216,14 @@
                            onclick="event.preventDefault();
                                          document.getElementById('logout-form').submit();">
                         <i class="fas fa-power-off"></i>
-                            {{ __('Logout') }}
+                            <p>Logout</p>
                         </a>
 
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                             @csrf
                         </form>
                         {{-- <li class="nav-item {{request()->is('log') ? 'active' : ''}}">
-                            <a href="{{ route('log.index') }}">
+                            <a href="">
                                 <i class="fas fa-server"></i>
                                 <p>Log</p>
                             </a>
