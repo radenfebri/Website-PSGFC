@@ -9,14 +9,16 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Storage;
+use PDF;
+
 
 class AnggotaController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    * Display a listing of the resource.
+    *
+    * @return \Illuminate\Http\Response
+    */
     public function index()
     {
         $anggotas = Anggota::orderBy('created_at','DESC')->paginate(5);
@@ -24,10 +26,10 @@ class AnggotaController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    * Show the form for creating a new resource.
+    *
+    * @return \Illuminate\Http\Response
+    */
     public function create()
     {
         abort_if(Gate::denies('create'), Response::HTTP_FORBIDDEN, 'Forbidden');
@@ -36,11 +38,11 @@ class AnggotaController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    * Store a newly created resource in storage.
+    *
+    * @param  \Illuminate\Http\Request  $request
+    * @return \Illuminate\Http\Response
+    */
     public function store(Request $request)
     {
         $this->validate($request, [
@@ -50,10 +52,10 @@ class AnggotaController extends Controller
         ]);
 
         $data = $request->all();
-            $data['nama'] = ($request->nama);
-            $data['jabatan'] = ($request->jabatan);
-            $data['body'] = ($request->body);
-            $data['foto_anggota'] = $request->file('foto_anggota')->store('anggota');
+        $data['nama'] = ($request->nama);
+        $data['jabatan'] = ($request->jabatan);
+        $data['body'] = ($request->body);
+        $data['foto_anggota'] = $request->file('foto_anggota')->store('anggota');
 
         Anggota::create($data);
 
@@ -62,22 +64,22 @@ class AnggotaController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    * Display the specified resource.
+    *
+    * @param  int  $id
+    * @return \Illuminate\Http\Response
+    */
     public function show($id)
     {
         //
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    * Show the form for editing the specified resource.
+    *
+    * @param  int  $id
+    * @return \Illuminate\Http\Response
+    */
     public function edit($id)
     {
         abort_if(Gate::denies('edit'), Response::HTTP_FORBIDDEN, 'Forbidden');
@@ -87,12 +89,12 @@ class AnggotaController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    * Update the specified resource in storage.
+    *
+    * @param  \Illuminate\Http\Request  $request
+    * @param  int  $id
+    * @return \Illuminate\Http\Response
+    */
     public function update(Request $request, $id)
     {
         if (empty($request->file('foto_anggota'))) {
@@ -121,11 +123,11 @@ class AnggotaController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    * Remove the specified resource from storage.
+    *
+    * @param  int  $id
+    * @return \Illuminate\Http\Response
+    */
     public function destroy($id)
     {
         abort_if(Gate::denies('delete'), Response::HTTP_FORBIDDEN, 'Forbidden');
@@ -136,5 +138,30 @@ class AnggotaController extends Controller
         $anggotas->delete();
         Alert::success('Berhasil', 'Data Berhasil Di Hapus');
         return redirect()->route('anggota.index');
+    }
+
+
+
+    // export PDF
+    public function cetak_pdf() {
+
+        $anggotas = Anggota::all();
+
+        $pdf = PDF::loadView('anggota.cetak',[
+            'anggotas' => $anggotas,
+        ]);
+
+        $options = [
+            'dpi' => 96,
+            'defaultFont' => 'Nunito',
+            'isRemoteEnabled' => true
+        ];
+
+        $pdf->setOptions($options);
+        // return $pdf->download('Daftar Anggota.pdf');
+        // return $pdf->stream();
+        return $pdf->stream('Daftar Anggota.pdf');
+
+
     }
 }

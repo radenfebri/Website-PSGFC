@@ -25,22 +25,20 @@
 
     <!-- ======= Blog Section ======= -->
     <br>
-    {{-- <div class="row justify-content-center">
-        <div class="col-md-6">
-            <form class="d-flex" action="/blog">
-                <input class="form-control me-2" name="search" type="search" value="{{ request('search') }}" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-primary" type="submit">Search</button>
-            </form>
-        </div>
-    </div> --}}
-
     <section id="blog" class="blog">
         <div class="container" data-aos="fade-up">
             <div class="row">
                 <div class="col-lg-8 entries">
 
+                    @php
+                    $i = 1;
+                    @endphp
+
                     @foreach ($blog as $item)
-                    <article class="entry">
+                    @php
+                        $i++;
+                    @endphp
+                    <article class="entry {{ $i == '1' ? 'active' : '' }}">
                         <div class="entry-img ">
                             <img src="{{ asset('storage/'. $item->gambar_artikel) }}" alt="" class="img-fluid">
                         </div>

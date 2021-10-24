@@ -79,7 +79,7 @@ class FrontendController extends Controller
 
         return view('front.blog.blog',[
             // 'blog' => $blog,
-            'blog' => Blog::latest()->filter(request(['search']))->paginate(2)->withQueryString(),
+            'blog' => Blog::latest()->filter(request(['search']))->paginate(10)->withQueryString(),
             'logo' => $logo,
             'anggota' => $anggota,
             'pendaftaran' => $pendaftaran,
