@@ -161,7 +161,6 @@ class AnggotaController extends Controller
 
         $pdf->setOptions($options);
         // return $pdf->download('Daftar Anggota.pdf');
-        // return $pdf->stream();
         return $pdf->stream('Daftar Anggota.pdf');
     }
 
