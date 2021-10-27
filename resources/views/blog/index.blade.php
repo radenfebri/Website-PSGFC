@@ -68,7 +68,7 @@
                                     <tr>
                                         <th>ID</th>
                                         <th>Nama Artikel</th>
-                                        <th>Slug</th>
+                                        <th>Status</th>
                                         <th>Author</th>
                                         <th>Gambar</th>
                                         <th>Action</th>
@@ -79,7 +79,12 @@
                                     <tr>
                                         <td>{{ $index + $blogs->firstItem() }}</td>
                                         <td>{{ $row->judul }}</td>
-                                        <td>{{ $row->slug }}</td>
+                                        <td>
+                                        @if ($row->is_active == '1')
+                                            Publish
+                                            @else
+                                            Draft
+                                        @endif</td>
                                         <td>{{ $row->users->name }}</td>
                                         <td><img src="{{ asset('storage/'. $row->gambar_artikel) }}" width="100"></td>
                                         <td>

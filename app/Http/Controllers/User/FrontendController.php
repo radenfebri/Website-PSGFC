@@ -73,13 +73,12 @@ class FrontendController extends Controller
         $pendaftaran = Pendaftaran::all();
         $footer = Footer::all();
         $logo = Logo::all();
-        // $blog = Blog::orderBy('created_at','DESC')->paginate(3);
-        $iklan = Iklan::orderBy('created_at','DESC')->paginate(2);
+        $blog = Blog::latest()->filter(request(['search']))->where('is_active', 1 )->paginate(10)->withQueryString();
+        $iklan = Iklan::orderBy('created_at','DESC')->where('status', 1 )->paginate(2);
         $postinganTerbaru = Blog::orderBy('created_at','DESC')->limit('5')->get();
 
         return view('front.blog.blog',[
-            // 'blog' => $blog,
-            'blog' => Blog::latest()->filter(request(['search']))->paginate(10)->withQueryString(),
+            'blog' => $blog,
             'logo' => $logo,
             'anggota' => $anggota,
             'pendaftaran' => $pendaftaran,
@@ -98,7 +97,7 @@ class FrontendController extends Controller
         $footer = Footer::all();
         $logo = Logo::all();
         $blog = Blog::where('slug', $slug)->first();
-        $iklan = Iklan::orderBy('created_at','DESC')->paginate(2);
+        $iklan = Iklan::orderBy('created_at','DESC')->where('status', 1 )->paginate(2);
         $postinganTerbaru = Blog::orderBy('created_at','DESC')->limit('5')->get();
 
         return view('front.blog.detail',[
