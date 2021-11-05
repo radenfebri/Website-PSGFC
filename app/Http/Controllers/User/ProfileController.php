@@ -93,6 +93,7 @@ class ProfileController extends Controller
                 'name'=> $request->name,
                 'email'=> $request->email,
                 'foto' => $request->file('foto')->store('users'),
+
             ]);
             Alert::info('Berhasil', 'Data Berhasil Di Update');
             return redirect()->route('profile.index');

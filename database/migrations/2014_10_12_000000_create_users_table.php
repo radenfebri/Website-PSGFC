@@ -19,7 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->string('foto')->default('default.jpg');
+            $table->string('foto')->default('users/default.png');
             // $table->text('facebook')->default('fb');
             // // $table->text('instagram');
             // // $table->text('twitter');
