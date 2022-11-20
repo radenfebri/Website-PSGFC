@@ -10,8 +10,10 @@
   <meta content="" name="keywords">
 
     <!-- Favicons -->
-    <link href="{{ asset('storage/'. $logo ) }}" rel="icon">
-    <link href="{{ asset('storage/'. $logo ) }}" rel="apple-touch-icon">
+    @foreach ($logo as $item)
+    <link href="{{ asset('storage/'. $item->logo ) }}" rel="icon">
+    <link href="{{ asset('storage/'. $item->logo ) }}" rel="apple-touch-icon">
+    @endforeach
 
 
   <!-- Google Fonts -->
