@@ -6,7 +6,7 @@
        <!-- Uncomment below if you prefer to use an image logo -->
        <a class="navbar-brand" href="/">
         @foreach ($logo as $item)
-            <img alt="/" class="logonav me-auto img-fluid" src="{{ asset('storage/'. $item->logo ) }}" alt="/">
+            <img alt="/" class="logonav me-auto img-fluid" src="{{ asset('storage/'. $item->logo ) }}" alt="Logo">
         @endforeach
 
         <span class="logo logoa">Warung Koloni</span>
