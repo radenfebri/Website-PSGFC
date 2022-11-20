@@ -9,7 +9,7 @@
             <img alt="/" class="logonav me-auto img-fluid" src="{{ asset('storage/'. $item->logo ) }}" alt="/">
         @endforeach
 
-        <span class="logo logoa">PSG FC</span>
+        <span class="logo logoa">Warung Koloni</span>
       </a>
 
 
@@ -19,7 +19,7 @@
               <a href="/" class="{{request()->is('/') ? 'active' : ''}}">Home</a>
             </li>
                 <li class="dropdown">
-                    <a href="#"><span>SSB</span><i class="bi bi-chevron-down"></i></a>
+                    <a href="#"><span>Warung</span><i class="bi bi-chevron-down"></i></a>
             <ul>
             @foreach ($pendaftaran as $item)
                 <li>
@@ -30,7 +30,7 @@
             <li><a href="{{ route('blog') }}" class="{{request()->is('blog') ? 'active' : ''}}">Blog</a></li>
             </ul>
           </li>
-          <li><a href="{{ route('jadwal-pertandingan-latihan') }}" class="{{request()->is('jadwal-pertandingan-latihan') ? 'active' : ''}}">Jadwal</a></li>
+          <li><a href="{{ route('jadwal-pertandingan-latihan') }}" class="{{request()->is('jadwal-pertandingan-latihan') ? 'active' : ''}}">Koloni</a></li>
           <li><a href="{{ route('galeri') }}" class="{{request()->is('galeri') ? 'active' : ''}}">Galeri</a></li>
           <li><a href="{{ route('about') }}" class="{{request()->is('about') ? 'active' : ''}}">About Us</a></li>
           <li><a href="{{ route('store') }}" class="{{ request()->is('store') ? 'active' : '' }}">Store</a></li>
