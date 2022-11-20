@@ -29,7 +29,7 @@
         <div class="container">
             <div class="tentang text-center">
                 <h2>Tentang Kami</h2>
-                <p>Persatuan Sepakbola Grogol</p>
+                <p>Warung Koloni</p>
             </div>
             <div class=" row textabout">
                 <div class="col-lg-2"></div>
@@ -88,8 +88,8 @@
         <div class="container">
 
           <div class="text-center textvideo" data-aos="fade-up">
-            <h2>Mas Lurah Channel</h2>
-            <p>Subscribe channel Mas Lurah Channel</p>
+            <h2>Warung Koloni</h2>
+            <p>Subscribe channel Warung Koloni</p>
           </div>
 
           <div class="video text-center">
