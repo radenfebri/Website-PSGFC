@@ -26,7 +26,7 @@
     <!-- Jadwal Section -->
     <section id="jadwal-pertandingan" class="jadwal">
         <div class="container table-responsive">
-            <h3 class="jadwal">Jadwal Pertandingan</h3>
+            <h3 class="jadwal">Jadwal</h3>
             <table class="table table-striped table-hover">
                 <thead>
                   <tr class="">
@@ -51,7 +51,7 @@
                         <td>{{date('H:i A',strtotime($item->tanggal_waktu))}}</td>
                     </tr>
                     @empty
-                    <p>Data Pertandingan Kosong</p>
+                    <p>Data Jadwal Kosong</p>
                     @endforelse
 
                 </tbody>
@@ -62,7 +62,7 @@
     <!-- Jadwal Latihan Section -->
 <section id="jadwal-latihan" class="jadwal">
     <div class="container jadwallatihan table-responsive">
-        <h3 class="jadwal">Jadwal Latihan</h3>
+        <h3 class="jadwal">Agenda</h3>
         <table class="table table table-striped table-hover">
             <thead>
               <tr>
@@ -81,7 +81,7 @@
                     <td>{{date('H:i A',strtotime($item->tanggal_waktu))}}</td>
                 </tr>
                 @empty
-                <p>Data Latihan masih Kosong</p>
+                <p>Data Agenda masih Kosong</p>
                 @endforelse
 
             </tbody>
