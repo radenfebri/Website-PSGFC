@@ -23,10 +23,10 @@
             <ul>
             @foreach ($pendaftaran as $item)
                 <li>
-                    <a href="{{ $item->link }}">Pendaftaran</a>
+                    <a href="{{ $item->link }}">Media</a>
                 </li>
             @endforeach
-            <li><a href="{{ route('daftar-anggota') }}" class="{{request()->is('daftar-anggota') ? 'active' : ''}}">Anggota</a></li>
+            <li><a href="{{ route('daftar-anggota') }}" class="{{request()->is('daftar-anggota') ? 'active' : ''}}">Tim Kerja</a></li>
             <li><a href="{{ route('blog') }}" class="{{request()->is('blog') ? 'active' : ''}}">Blog</a></li>
             </ul>
           </li>
