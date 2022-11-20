@@ -69,7 +69,7 @@
               <div class="icon-box" data-aos="fade-up" data-aos-delay="300">
                 <div class="icon"><i class="bx bxl-whatsapp"></i></div>
                 <h4 class="title"><a href="{{ $item->link_wa }}">Hubungi Kami</a></h4>
-                <p class="description">Hubungi kami melalui whatsapp bila ada pertanyaan seputar PSG FC</p>
+                <p class="description">Hubungi kami melalui whatsapp bila ada pertanyaan seputar Warung Koloni</p>
               </div>
             </div>
 
