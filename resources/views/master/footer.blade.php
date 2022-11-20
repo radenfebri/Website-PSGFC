@@ -7,7 +7,7 @@
     @foreach ($footer as $item )
           <div class="col-lg-3 col-md-6">
             <div class="footer-info">
-              <h3>PSG FC</h3>
+              <h3>Warung Koloni</h3>
               <p>
                 {{ $item->alamat }}
                 <br><br>
@@ -26,23 +26,23 @@
 
 
           <div class="col-lg-2 col-md-6 footer-links">
-            <h4>PSG FC</h4>
+            <h4>Warung Koloni</h4>
             <ul>
               <li><i class="bx bx-chevron-right"></i> <a href="/">Home</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="{{ route('jadwal-pertandingan-latihan') }}">Jadwal Pertandingan</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{{ route('jadwal-pertandingan-latihan') }}">Koloni</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="{{ route('store') }}">Store</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="{{ route('about') }}">About US</a></li>
             </ul>
           </div>
 
           <div class="col-lg-3 col-md-6 footer-links">
-            <h4>SBB</h4>
+            <h4>Link Lainnya</h4>
             <ul>
                 @foreach ($pendaftaran as $item)
-                <li><i class="bx bx-chevron-right"></i> <a href="{{ $item->link}}"> Pendaftaran SBB</a></li>
+                <li><i class="bx bx-chevron-right"></i> <a href="{{ $item->link}}">Media</a></li>
                 @endforeach
               <li><i class="bx bx-chevron-right"></i> <a href="{{ route('daftar-anggota') }}">Anggota</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="{{ route('jadwal-pertandingan-latihan') }}">Jadwal Latihan</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{{ route('jadwal-pertandingan-latihan') }}">Koloni</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="{{ route('galeri') }}">Galeri</a></li>
             </ul>
           </div>
