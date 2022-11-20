@@ -7,7 +7,7 @@
 
 <center>
     <div class="col-lg-6">
-        <img src="{{ asset('image/register.png') }}" alt="" class="loginimage">
+        {{-- <img src="{{ asset('image/register.png') }}" alt="" class="loginimage"> --}}
     </div>
 </center>
 
